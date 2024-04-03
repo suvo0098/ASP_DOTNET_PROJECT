@@ -1,0 +1,82 @@
+﻿@model Mobile_DAO.order_details
+
+@{
+
+    ViewBag.Title = "Order Detail";
+
+}
+
+<style>
+
+    .container {
+        margin-top: 50px;
+    }
+
+    .bill-container {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+    }
+
+    .bill-heading {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .bill-details {
+        margin-bottom: 30px;
+    }
+
+    .btn-print {
+        border-radius: 20px;
+    }
+</style>
+
+<script>function printDiv() {
+
+        var printContainer = document.getElementById("printable").innerHTML;
+
+        var originalContent = document.body.innerHTML;
+
+        document.body.innerHTML = printContainer;
+
+        window.print();
+
+        document.body.innerHTML = originalContent;
+
+    }</script>
+
+@using (Html.BeginForm())
+
+{
+
+@Html.AntiForgeryToken()
+
+<div class="container" id="printable">
+
+    <div class="bill-container">
+
+        <h2 class="bill-heading">Bill</h2>
+
+        <div class="bill-details">
+
+            <p><strong>Product Name:</strong> @Model.mobile_details.mobileName</p>
+
+            <p><strong>Customer Name:</strong> @Model.user_details.user_name</p>
+
+            <p><strong>Quantity:</strong> @Model.quantity</p>
+
+            <p><strong>Amount per Product:</strong> ₹@Model.mobile_details.price</p>
+
+            <p><strong>Total Amount:</strong> ₹@Model.total</p>
+
+        </div>
+
+        <button class="btn btn-primary btn-print" onclick="printDiv()">Print Bill</button>
+
+    </div>
+
+</div>
+
+}

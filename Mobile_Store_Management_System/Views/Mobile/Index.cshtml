@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Mobile_DAO.mobile_details>
+<!---Mobile_Store_Management_System.Models.MSM_Mobile-->
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    .table {
+        color:white;
+        background-color: rgba(57, 44, 51, 0.5);
+    }
+</style>
+
+<h2 class="text-white">Mobile List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create",null,new {@class="btn btn-primary"})
+</p>
+<table class="table ">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.user_details.user_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mobileName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.stock_quantity)
+        </th>
+        <th>Select</th>
+    </tr>
+
+    @foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_details.user_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mobileName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.stock_quantity)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.mobileId } , new{@class="btn btn-warning"}) 
+            @Html.ActionLink("Delete", "Delete", new { id=item.mobileId },new{@class="btn btn-danger"})
+        </td>
+
+        
+    </tr>
+}
+
+</table>

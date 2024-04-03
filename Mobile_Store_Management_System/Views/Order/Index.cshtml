@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Mobile_DAO.order_details>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    .table {
+        color: white;
+        background-color: rgba(57, 44, 51, 0.5);
+    }
+</style>
+
+<h2 class="text-white">Order List</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.mobile_details.mobileName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user_details.user_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.total)
+        </th>
+        @if (Session["user_type"] != null && Session["user_type"].Equals("seller"))
+        {
+         <th>
+             Select
+         </th>
+           
+        }
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.mobile_details.mobileName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_details.user_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.total)
+        </td>
+        
+        @if (Session["user_type"] != null && Session["user_type"].Equals("seller"))
+        {
+        <td >
+            <!--Update Product by Seller-->
+            @Html.ActionLink("Delete", "Delete", new { id=item.orderId } , new{@class="btn btn-danger"})
+        </td>
+        }
+    </tr>
+}
+
+</table>

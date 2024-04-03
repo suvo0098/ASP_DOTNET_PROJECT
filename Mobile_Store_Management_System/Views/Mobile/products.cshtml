@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Mobile_DAO.mobile_details>
+
+@{
+
+    ViewBag.Title = "Products";
+
+}
+
+<style>
+
+    .product-card {
+        margin-bottom: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+
+    .purchase-button {
+        border-radius: 20px;
+        width: 50%;
+    }
+
+    .max-width {
+        max-width: 109px;
+    }
+
+    .card {
+        
+        background-color: rgba(0,0,0,0.5);
+    }
+
+    
+</style>
+
+@*@using (Html.BeginForm("products","Mobile",FormMethod.Post))
+{
+
+@Html.AntiForgeryToken()*@
+
+<div class="container">
+
+    <div class="row row-cols-2 row-cols-lg-3 g-4">
+
+        @foreach (var item in Model)
+        {
+        using (Html.BeginForm("products","Mobile",FormMethod.Post))
+        {
+
+        @Html.AntiForgeryToken()
+
+        <div class="col">
+
+            <div class="card product-card text-white ">
+
+                <input type="hidden" name="mobileId" value="@item.mobileId" />
+
+                <input type="hidden" name="stock_quantity" value="@item.stock_quantity" />
+
+                <input type="hidden" name="price" value="@item.price" />
+
+                @*<img src="https://via.placeholder.com/300" class="card-img-top product-image" alt="Product Image">*@
+
+                <div class="card-body">
+
+                    <h5 class="card-title text-primary">@item.mobileName</h5>
+
+                    <p class="card-text">@item.description</p>
+
+                    <p class="card-text ">Price: ₹@item.price</p>
+
+                    <p class="card-text ">Stock Quantity: @item.stock_quantity</p>
+
+                    @if (Session["user_type"] != null && Session["user_type"].Equals("customer"))
+                    {
+
+                    <input type="submit" formmethod="post" class="form-control btn btn-outline-info max-width" value="Purchases" />
+                    }
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        }
+        }
+      }
+
+    </div>
+
+</div>
+
+@*}*@

@@ -1,0 +1,12 @@
+C:\project\Mobile_Store_Management_System\Mobile_DAO\bin\Debug\Mobile_DAO.dll.config
+C:\project\Mobile_Store_Management_System\Mobile_DAO\bin\Debug\Mobile_DAO.dll
+C:\project\Mobile_Store_Management_System\Mobile_DAO\bin\Debug\Mobile_DAO.pdb
+C:\project\Mobile_Store_Management_System\Mobile_DAO\bin\Debug\EntityFramework.dll
+C:\project\Mobile_Store_Management_System\Mobile_DAO\bin\Debug\EntityFramework.SqlServer.dll
+C:\project\Mobile_Store_Management_System\Mobile_DAO\bin\Debug\EntityFramework.xml
+C:\project\Mobile_Store_Management_System\Mobile_DAO\bin\Debug\EntityFramework.SqlServer.xml
+C:\project\Mobile_Store_Management_System\Mobile_DAO\obj\Debug\Mobile_DAO.csproj.AssemblyReference.cache
+C:\project\Mobile_Store_Management_System\Mobile_DAO\obj\Debug\Mobile_DAO.csproj.CoreCompileInputs.cache
+C:\project\Mobile_Store_Management_System\Mobile_DAO\obj\Debug\Mobile_DAO.csproj.CopyComplete
+C:\project\Mobile_Store_Management_System\Mobile_DAO\obj\Debug\Mobile_DAO.dll
+C:\project\Mobile_Store_Management_System\Mobile_DAO\obj\Debug\Mobile_DAO.pdb

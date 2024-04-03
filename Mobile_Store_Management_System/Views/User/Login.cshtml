@@ -1,0 +1,80 @@
+﻿
+@model Mobile_DAO.user_details
+
+@{
+    ViewBag.Title = "LogIn";
+}
+
+<style>
+
+    .myFormDesign {
+        margin-top: 50px;
+        background-color: rgba(255,255,255,0.3);
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        max-width: 500px;
+    }
+
+    .container h2 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .fieldText {
+        font-size: 17px;
+        font-weight: bold;
+    }
+
+    .form-label {
+        font-weight: bold;
+    }
+
+    .form-control {
+        border-radius: 20px;
+    }
+
+    .btn-submit {
+        border-radius: 20px;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+@Html.AntiForgeryToken()
+<div style="display:flex;justify-content:center;">
+    <div class="form-horizontal myFormDesign">
+
+        <h2 class="text-center">Log In</h2>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group row my-2">
+            @Html.LabelFor(model => model.user_name, htmlAttributes: new { @class = "control-label col-md-4 text-black fieldText" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.user_name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.user_name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row my-2">
+            @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-4 text-Black fieldText" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control",@type="password" } })
+                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group row my-2">
+            <div class="col-md-offset-2 col-md-8">
+                <input type="submit" value="LogIn" class="btn btn-primary btn-submit " />
+                @Html.ActionLink("Register", "Create", null, new { @class = "btn btn-info btn-submit" })
+            </div>
+        </div>
+    </div>
+
+</div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
